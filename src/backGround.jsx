@@ -11,7 +11,7 @@ const StarryBackground = () => {
     canvas.height = window.innerHeight;
 
     const stars = Array.from({ length: 100 }, () => createStar());
-    const comets = Array.from({ length: 10 }, () => createComet()); // Increased comets count
+    const comets = Array.from({ length: 100 }, () => createComet()); // Increased comets count
     const spaceships = Array.from({ length: 5 }, () => createSpaceship()); // Increased spaceship count
 
     function createStar() {
@@ -26,7 +26,7 @@ const StarryBackground = () => {
     function createComet() {
       return {
         x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height / 2,
+        y: Math.random() * canvas.height ,
         length: Math.random() * 80 + 20,
         speed: Math.random() * 2 + 1,
         opacity: Math.random() * 0.5 + 0.2,
@@ -112,7 +112,12 @@ const StarryBackground = () => {
     return () => window.removeEventListener("resize", resizeHandler);
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" style={{ pointerEvents: "none" }} />;
+  return (  <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full" style={{ pointerEvents: "none" }} />);
+            
+              
+                  {/* <Portfolio /> */}
+             
+  
 };
 
 // const Portfolio = () => {
